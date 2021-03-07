@@ -66,10 +66,81 @@ File: Layout CSS
 	margin-right: 1%;
 }
 
-/* Page Intro 讲座笔记图片
+/* banner 讲座笔记图片
 --------------------------------------------------------------------------------------------------------------- */
-#pageintro{
-	padding:180px 0;
+#banner{
+	padding-top: 20px;
+}
+#banner * {
+	box-sizing:border-box;
+}
+#banner .carousel {
+	position:relative;
+	height:300px;
+	width:100%;
+	overflow:hidden;
+}
+#banner .carousel-inner {
+	position:relative;
+}
+#banner .carousel-inner .item {
+	opacity:0;
+	z-index:1;
+	position:absolute;
+	top:0;
+	left:0;
+}
+#banner .carousel-inner .item.active {
+	opacity:1;
+	transition:opacity .5s;
+	z-index:5;
+}
+#banner .carousel-inner .item > img {
+	max-width:100%;
+	height:auto;
+}
+#banner .carousel-sort {
+	list-style:none;
+	padding:0;
+	position:absolute;
+	bottom:10px;
+	z-index:10;
+	left:50%;
+	transform:translateX(-50%);
+}
+#banner .carousel-sort .item {
+	cursor:pointer;
+	padding:4px 20px;
+	margin-right:5px;
+	float:left;
+	border:1px solid black;
+	background-color:#b0b0b0;
+}
+#banner .carousel-sort .item.active {
+	background-color:#f5f5f5;
+}
+#banner .carousel-left,.carousel-right {
+	position:absolute;
+	left:0;
+	top:50%;
+	transform:translateY(-50%);
+	width:40px;
+	height:70px;
+	z-index:15;
+	text-align:center;
+	cursor:pointer;
+	background:url("https://images.cnblogs.com/cnblogs_com/py-peng/1647393/o_200322083251direction.png") no-repeat -84px;
+}
+#banner .carousel-left:hover {
+	background-position:0;
+}
+#banner .carousel-right {
+	left:auto;
+	right:0;
+	background-position:-124px;
+}
+#banner .carousel-right:hover {
+	background-position:-42px;
 }
 
 /* 分割线
@@ -97,15 +168,15 @@ File: Layout CSS
 	margin-left: 1%;
 }
 
-.hot_search{
+#trending .hot_search{
 	text-align: center;
 	height:21.25%; 
 	line-height:450%;
 	background: #dcdcdcec;
-	margin-bottom: 5%;
+	margin-bottom: 4.75%;
 }
 
-.hot_search_bottom{
+#trending .hot_search_bottom{
 	text-align: center;
 	height:21.25%; 
 	line-height:450%;
@@ -121,13 +192,21 @@ File: Layout CSS
 	margin-right: 1%;
 }
 
-.preview{
+#notice .preview{
 	width: 80%;
 	text-align: center;
 	height:25%; 
 	line-height:650%;
 	margin:auto; 
 	border-bottom: 6px solid #ffffff;
+}
+
+#notice .last-preview{
+	width: 80%;
+	text-align: center;
+	height:25%;
+	line-height:650%; 
+	margin:auto; 
 }
 
 /* 日历样式 */
@@ -311,8 +390,8 @@ input:focus, textarea:focus, *:required:focus{border-color:#56AED4;}
 #header input{background :#858d90; width: 200px; height:30px; color: #ffffff;} 
 #header input::placeholder{color: #ffffff;}
 
-/* Page Intro */
-#pageintro{color:#FFFFFF;}
+/* Banner */
+#banner{color:#FFFFFF;}
 
 /* Content Area */
 
