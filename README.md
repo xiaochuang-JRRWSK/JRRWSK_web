@@ -44,6 +44,7 @@
 
 5. 实现两个将数据库搜索结果回传到页面上的demo   
     使用的SQL语句如下，对应学科导航栏和搜索框
+    
     ```mysql
     # 根据学科返回所有讲座信息
     select title,organizer,introduction from lecture where field like '%{field}%'
@@ -52,3 +53,11 @@
     from lecture 
     where title like '%{keyword}%';
     ```
+
+### 2021.3.7
+
+新增了轮播图和日历功能
+
+![2021-03-07_204927](http://img.joycez.xyz/md/2021-03-07_204927.jpg)
+
+![2021-03-07_204938](http://img.joycez.xyz/md/2021-03-07_204938.jpg)
