@@ -8,128 +8,133 @@ import copy
 app = Flask(__name__,static_url_path='/static/',template_folder='templates')
 CORS(app, resources=r'/*')
 
-mysql_path="111.229.84.244"
-mysql_user="JJYDXFS"
+mysql_path="82.156.28.161"
+mysql_user="mysql"
 mysql_pass="xiaochuang12345"
 mysql_db="xiaochuang"
 
-ip="localhost"
-
-# 主页
-@app.route('/')
-def index():
-    return render_template("index.html")
+ip="localhost:5000"
 
 # GET
-
-@app.route('/api/get_subject_list', methods=['GET'])
-def get_subject_list():
+###################################################################################################
+@app.route('/api/get_wechat_notes', methods=['GET'])
+def get_wechat_notes():
     '''
-    返回学科及学科url列表
+    对应首页轮播图数据
+    返回微信公众号头图及其链接
     '''
-    path="http://"+ip+":5000/"
-    subject_list=[
+    # 最好把数据存在数据库里
+    notes_list=[
         {
-            'subject': '经济',
-            'url': path+'subject/economics'
-        },{
-            'subject': '教育',
-            'url': path+'subject/education'
-        },{
-            'subject': '艺术',
-            'url': path+'subject/art'
-        },{
-            'subject': '文学',
-            'url': path+'subject/literature'
-        },{
-            'subject': '管理学',
-            'url': path+'subject/management'
-        },{
-            'subject': '传播',
-            'url': path+'subject/communication'
-        },{
-            'subject': '哲学',
-            'url': path+'subject/philosophy'
-        },{
-            'subject': '新闻',
-            'url': path+'subject/journalism'
-        },{
-            'subject': '法律',
-            'url': path+'subject/law'
+            "image":"http://img.joycez.xyz/md/demo_banner.jpg",
+            "url":"https://mp.weixin.qq.com/s/fGAQrtkfxVo1eeA249m7vg"
+        },
+        {
+            "image":"http://img.joycez.xyz/md/demo_banner02.png",
+            "url":"https://mp.weixin.qq.com/s/6eCGNFpzEhDNiTHzvIc2Zg"
+        },
+        {
+            "image":"http://img.joycez.xyz/md/demo_banner03.png",
+            "url":"https://mp.weixin.qq.com/s/rlX3hESuEwdozY9Ava6jBg"
+        },
+        {
+            "image":"http://img.joycez.xyz/md/demo_banner04.png",
+            "url":"https://mp.weixin.qq.com/s/NMOTOvcO0Bw-ykwDe4gStw"
+        },
+        {
+            "image":"http://img.joycez.xyz/md/demo_banner05.png",
+            "url":"https://mp.weixin.qq.com/s/a00FFJn5um38mjhCwKFPfg"
         }
     ]
 
-    return json.dumps({'subject_list':subject_list},ensure_ascii=False)
+    return json.dumps({'notes_list':notes_list},ensure_ascii=False)
 
-# POST
-
-@app.route('/api/get_lecture_by_subject', methods=['POST'])
-def get_lecture_by_subject():
+@app.route('/api/get_trending', methods=['GET'])
+def get_trending():
     '''
-    返回对应学科的讲座列表
+    对应首页热搜数据
+    返回由算法得出的热搜讲座信息
     '''
-    subject=request.form['subject']
-    
-    db = pymysql.connect(mysql_path, mysql_user, mysql_pass, mysql_db)
+    # 热搜算法还没设计，随机从数据库中抽取四个讲座信息
+    db = pymysql.connect(host=mysql_path, user=mysql_user, password=mysql_pass, database=mysql_db)
     cursor = db.cursor()
-    sql="""
-    select title,organizer,introduction from lecture where field like '%{}%';
-    """.format(subject)
+    sql="""SELECT ID, title, starttime
+    FROM lecture ORDER BY rand() LIMIT 4;"""
     cursor.execute(sql)
     data=cursor.fetchall()
 
-    lecture_list=[]
+    trending_list=[]
+    for lecture in data:
+        info={
+            "title":lecture[1],
+            "date":str(lecture[2])[:10],
+            "url":"http://"+ip+"/lecture/"+str(lecture[0])
+        }
+        trending_list.append(info)
+    return json.dumps({'trending_list':trending_list},ensure_ascii=False)
 
-    for i in data:
-        temp={}
-        temp['title']=i[0]
-        temp['organizer']=i[1]
-        temp['introduction']=i[2]
-        lecture_list.append(copy.deepcopy(temp))
-
-    return json.dumps({'lecture_list':lecture_list},ensure_ascii=False)
-
-@app.route('/api/get_lecture_by_keyword', methods=['POST'])
-def get_lecture_by_keyword():
+@app.route('/api/get_notice', methods=['GET'])
+def get_notice():
     '''
-    返回关键字对应的讲座列表
+    对应首页讲座预告数据
+    返回最近的四个未开始讲座
     '''
-    keyword=request.form['keyword']
-    
-    db = pymysql.connect(mysql_path, mysql_user, mysql_pass, mysql_db)
+    # 预告数据还没收集，从数据库中选出时间最近的四个讲座信息
+    db = pymysql.connect(host=mysql_path, user=mysql_user, password=mysql_pass, database=mysql_db)
     cursor = db.cursor()
-    sql="""
-    select title,organizer,introduction,field
-    from lecture 
-    where title like '%{}%';
-    """.format(keyword)
-
+    sql="""SELECT ID, title
+    FROM lecture ORDER BY starttime desc LIMIT 4;"""
     cursor.execute(sql)
     data=cursor.fetchall()
 
-    lecture_list=[]
+    notice_list=[]
+    for lecture in data:
+        info={
+            "title":lecture[1],
+            "url":"http://"+ip+"/lecture/"+str(lecture[0])
+        }
+        notice_list.append(info)
 
-    for i in data:
-        temp={}
-        temp['title']=i[0]
-        temp['organizer']=i[1]
-        temp['introduction']=i[2]
-        temp['field']=i[3]
-        lecture_list.append(copy.deepcopy(temp))
+    return json.dumps({'notice_list':notice_list},ensure_ascii=False)
 
-    return json.dumps({'lecture_list':lecture_list},ensure_ascii=False)
+# 模板渲染
+###################################################################################################
+@app.route('/')
+def index():
+    '''
+    主页
+    '''
+    return render_template("index.html")
 
-# 学科页
+# @app.route('/subject/<subject>')
+# def direct_to_subject_page(subject):
+#     '''
+#     学科页
+#     '''
+#     return render_template("subject_demo.html",title = subject)
 
-@app.route('/subject/<subject>')
-def direct_to_subject_page(subject):
-    return render_template("subject_demo.html",title = subject)
+# @app.route('/search=<keyword>')
+# def direct_to_search_result_page(keyword):
+#     '''
+#     搜索结果页
+#     '''
+#     return render_template("search_demo.html",title = keyword)
+@app.route('/lecture/<ID>')
+def direct_to_lecture_page(ID):
+    '''
+    讲座详细内容页面
+    '''
+    db = pymysql.connect(host=mysql_path, user=mysql_user, password=mysql_pass, database=mysql_db)
+    cursor = db.cursor()
+    sql="""select content from message_text
+    where ID={};""".format(ID)
+    cursor.execute(sql)
+    data=cursor.fetchall()[0][0]
 
-# 搜索结果页
+    return data
 
-@app.route('/search=<keyword>')
-def direct_to_search_result_page(keyword):
-    return render_template("search_demo.html",title = keyword)
+
 
 if __name__ == '__main__':
+    app.debug=True
     app.run('0.0.0.0', 5000)
