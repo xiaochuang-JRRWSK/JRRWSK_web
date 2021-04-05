@@ -1,20 +1,12 @@
 <!DOCTYPE html>
-<!--
-Template Name: Surogou
-Author: <a href="https://www.os-templates.com/">OS Templates</a>
-Author URI: https://www.os-templates.com/
-Copyright: OS-Templates.com
-Licence: Free to use under our free template licence terms
-Licence URI: https://www.os-templates.com/template-terms
--->
 <html lang="en">
 
 <head>
-<title>今日人文社科</title>
+<title>{{title}}</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<link href="static/layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link href="static/layout/styles/layout_subject.css" rel="stylesheet" type="text/css" media="all">
 <script src="static/layout/scripts/vue.js"></script>
 
 </head>
@@ -24,10 +16,10 @@ Licence URI: https://www.os-templates.com/template-terms
   <div id="topbar" class="hoc clear"> 
     <div class="fl_left">
       <ul class="nospace">
-        <li><a href="index.html">首页</a></li>
-        <li><a href="#">新闻传播</a></li>
-        <li><a href="#">计算机</a></li>
-        <li><a href="#">艺术</a></li>
+        <li><a href="http://localhost:8080/">首页</a></li>
+        <li><a href="http://localhost:5000/subject=journalism">新闻传播</a></li>
+        <li><a href="http://localhost:5000/subject=engineering">计算机</a></li>
+        <li><a href="http://localhost:5000/subject=art">艺术</a></li>
         <li><a href="#">艺考</a></li>
       </ul>
     </div>
@@ -59,9 +51,44 @@ Licence URI: https://www.os-templates.com/template-terms
 
 </div>
 
-<div class="bgded overlay" style="background-image:url('static/layout/img/01.jpg');">
-  <div id="pageintro" class="hoc clear"> 
-
+<div id="banner">
+  <div class="carousel">
+    <div class="carousel-inner">
+        <div class="item active">
+          <a href="https://mp.weixin.qq.com/s/W18r_ypMjprtecjJAbDarw">
+              <img src="http://localhost:8080/img/八大作_fit.png">
+            </a>
+        </div>
+        <div class="item">
+          <a href="https://mp.weixin.qq.com/s/W18r_ypMjprtecjJAbDarw">
+            <img src="http://localhost:8080/img/八大作_fit.png">
+          </a>
+        </div>
+        <div class="item">
+          <a href="https://mp.weixin.qq.com/s/W18r_ypMjprtecjJAbDarw">
+            <img src="http://localhost:8080/img/八大作_fit.png">
+          </a>
+        </div>
+        <div class="item">
+          <a href="https://mp.weixin.qq.com/s/W18r_ypMjprtecjJAbDarw">
+            <img src="http://localhost:8080/img/八大作_fit.png">
+          </a>
+        </div>
+        <div class="item">
+          <a href="https://mp.weixin.qq.com/s/W18r_ypMjprtecjJAbDarw">
+            <img src="http://localhost:8080/img/八大作_fit.png">
+          </a>
+        </div>
+    </div>
+    <ul class="carousel-sort">
+        <li class="item active"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+    </ul>
+    <div class="carousel-left"></div>
+    <div class="carousel-right"></div>
   </div>
 </div>
 
@@ -75,39 +102,12 @@ Licence URI: https://www.os-templates.com/template-terms
     <div class="hot_search_bottom">热搜4</div>
   </div>
 
-  <div id="notice">
-    <div class="preview">预告1</div>
-    <div class="preview">预告1</div>
-    <div class="preview">预告1</div>
+  <div id="notice_subject">
+    
+    {% for i in lecture_list %}
+      <div class="date">{{i.time}}</div><div class="preview_subject">{{i.title}}</div>
+    {% endfor %}
   </div>
-
-  <div class="calendar">
-    <div class="title">
-        <h1 class="calendar_color" id="calendar-title">Month</h1>
-        <h2 class="calendar_color small" id="calendar-year">Year</h2>
-        <a href="" id="prev">Prev Month</a>
-        <a href="" id="next">Next Month</a>
-    </div>
-    <div class="body">
-        <div class="lightgrey body-list">
-            <ul>
-                <li>一</li>
-                <li>二</li>
-                <li>三</li>
-                <li>四</li>
-                <li>五</li>
-                <li>六</li>
-                <li>日</li>
-            </ul>
-        </div>
-        <div class="body-list">
-            <ul id="days">
-            </ul>
-        </div>
-    </div>
-  </div>
-  
-</div>
 
 <div class="row5">
   <div id="copyright" class="hoc clear"> 
@@ -124,7 +124,8 @@ Licence URI: https://www.os-templates.com/template-terms
 <script src="static/layout/scripts/jquery.min.js"></script>
 <script src="static/layout/scripts/jquery.backtotop.js"></script>
 <script src="static/layout/scripts/jquery.mobilemenu.js"></script>
-<script src="static/layout/scripts/tools.js"></script>
+<script src="static/layout/scripts/component.js"></script>
+<script src="static/layout/scripts/getData.js"></script>
 
 </body>
 </html>
