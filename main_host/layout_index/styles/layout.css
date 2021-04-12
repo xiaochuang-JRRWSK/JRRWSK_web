@@ -129,7 +129,7 @@ File: Layout CSS
 	z-index:15;
 	text-align:center;
 	cursor:pointer;
-	background:url("https://images.cnblogs.com/cnblogs_com/py-peng/1647393/o_200322083251direction.png") no-repeat -84px;
+	background:url("http://localhost:8080/img/direction.png") no-repeat -84px;
 }
 #banner .carousel-left:hover {
 	background-position:0;
@@ -171,7 +171,7 @@ File: Layout CSS
 #trending .hot_search{
 	text-align: center;
 	height:21.25%; 
-	line-height:450%;
+	line-height:250%;
 	background: #dcdcdcec;
 	margin-bottom: 4.75%;
 }
@@ -179,8 +179,12 @@ File: Layout CSS
 #trending .hot_search_bottom{
 	text-align: center;
 	height:21.25%; 
-	line-height:450%;
+	line-height:250%;
 	background: #dcdcdcec;
+}
+
+#trending a{
+	color:#000000;
 }
 
 #notice{
@@ -207,6 +211,10 @@ File: Layout CSS
 	height:25%;
 	line-height:650%; 
 	margin:auto; 
+}
+
+#notice a{
+	color:#000000;
 }
 
 /* 日历样式 */

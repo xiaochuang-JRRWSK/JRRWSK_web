@@ -7,8 +7,6 @@ $('#search').on('keypress',function(event){
         window.location.href=url;
     }  
 });
-
-
 // 实现轮播图
 // 参考：https://www.sucainiu.com/code/1755.html
 function carousel(stop_time) {

@@ -1,12 +1,4 @@
 <!DOCTYPE html>
-<!--
-Template Name: Surogou
-Author: <a href="https://www.os-templates.com/">OS Templates</a>
-Author URI: https://www.os-templates.com/
-Copyright: OS-Templates.com
-Licence: Free to use under our free template licence terms
-Licence URI: https://www.os-templates.com/template-terms
--->
 <html lang="en">
 
 <head>
@@ -14,8 +6,8 @@ Licence URI: https://www.os-templates.com/template-terms
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<link href="static/layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
-<script src="static/layout/scripts/vue.js"></script>
+<link href="layout_index/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<script src="layout_index/scripts/vue.js"></script>
 
 
 </head>
@@ -26,9 +18,9 @@ Licence URI: https://www.os-templates.com/template-terms
     <div class="fl_left">
       <ul class="nospace">
         <li><a href="index.html">首页</a></li>
-        <li><a href="#">新闻传播</a></li>
-        <li><a href="#">计算机</a></li>
-        <li><a href="#">艺术</a></li>
+        <li><a href="http://localhost:5000/subject=journalism">新闻传播</a></li>
+        <li><a href="http://localhost:5000/subject=engineering">计算机</a></li>
+        <li><a href="http://localhost:5000/subject=art">艺术</a></li>
         <li><a href="#">艺考</a></li>
       </ul>
     </div>
@@ -41,7 +33,7 @@ Licence URI: https://www.os-templates.com/template-terms
     <div id="logo" class="one_half first">
       
       <h1 class="logoname">
-        <img src="static/layout/img/logo.png" style="height: 100px;float: left;">
+        <img src="layout_index/img/logo.png" style="height: 100px;float: left;">
         <div>
           <a href="index.html">
             <span>今日</span>
@@ -60,9 +52,44 @@ Licence URI: https://www.os-templates.com/template-terms
 
 </div>
 
-<div class="bgded overlay" style="background-image:url('static/layout/img/01.jpg');">
-  <div id="pageintro" class="hoc clear"> 
-
+<div id="banner">
+  <div class="carousel">
+    <div class="carousel-inner">
+        <div class="item active">
+          <a href="https://mp.weixin.qq.com/s/W18r_ypMjprtecjJAbDarw">
+              <img src="http://localhost:8080/img/八大作_fit.png">
+            </a>
+        </div>
+        <div class="item">
+          <a href="https://mp.weixin.qq.com/s/W18r_ypMjprtecjJAbDarw">
+            <img src="http://localhost:8080/img/八大作_fit.png">
+          </a>
+        </div>
+        <div class="item">
+          <a href="https://mp.weixin.qq.com/s/W18r_ypMjprtecjJAbDarw">
+            <img src="http://localhost:8080/img/八大作_fit.png">
+          </a>
+        </div>
+        <div class="item">
+          <a href="https://mp.weixin.qq.com/s/W18r_ypMjprtecjJAbDarw">
+            <img src="http://localhost:8080/img/八大作_fit.png">
+          </a>
+        </div>
+        <div class="item">
+          <a href="https://mp.weixin.qq.com/s/W18r_ypMjprtecjJAbDarw">
+            <img src="http://localhost:8080/img/八大作_fit.png">
+          </a>
+        </div>
+    </div>
+    <ul class="carousel-sort">
+        <li class="item active"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+    </ul>
+    <div class="carousel-left"></div>
+    <div class="carousel-right"></div>
   </div>
 </div>
 
@@ -123,11 +150,11 @@ Licence URI: https://www.os-templates.com/template-terms
 <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
 
 <!-- JAVASCRIPTS -->
-<script src="layout/scripts/jquery.min.js"></script>
-<script src="layout/scripts/jquery.backtotop.js"></script>
-<script src="layout/scripts/jquery.mobilemenu.js"></script>
-<script src="layout/scripts/component.js"></script>
-<script src="layout/scripts/getData.js"></script>
+<script src="layout_index/scripts/jquery.min.js"></script>
+<script src="layout_index/scripts/jquery.backtotop.js"></script>
+<script src="layout_index/scripts/jquery.mobilemenu.js"></script>
+<script src="layout_index/scripts/component.js"></script>
+<script src="layout_index/scripts/getData.js"></script>
 
 </body>
 </html>
