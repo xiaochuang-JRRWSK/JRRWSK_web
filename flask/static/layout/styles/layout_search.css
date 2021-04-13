@@ -51,8 +51,6 @@ File: Layout CSS
 	font-weight:400;
 }
 
-#header div:last-child{margin-bottom:0;}/* Used when elements stack in small viewports */
-
 /* search 搜索框
 --------------------------------------------------------------------------------------------------------------- */
 #search{
@@ -66,83 +64,6 @@ File: Layout CSS
 	margin-right: 1%;
 }
 
-/* banner 讲座笔记图片
---------------------------------------------------------------------------------------------------------------- */
-#banner{
-	padding-top: 20px;
-}
-#banner * {
-	box-sizing:border-box;
-}
-#banner .carousel {
-	position:relative;
-	height:300px;
-	width:100%;
-	overflow:hidden;
-}
-#banner .carousel-inner {
-	position:relative;
-}
-#banner .carousel-inner .item {
-	opacity:0;
-	z-index:1;
-	position:absolute;
-	top:0;
-	left:0;
-}
-#banner .carousel-inner .item.active {
-	opacity:1;
-	transition:opacity .5s;
-	z-index:5;
-}
-#banner .carousel-inner .item > img {
-	max-width:100%;
-	height:auto;
-}
-#banner .carousel-sort {
-	list-style:none;
-	padding:0;
-	position:absolute;
-	bottom:10px;
-	z-index:10;
-	left:50%;
-	transform:translateX(-50%);
-}
-#banner .carousel-sort .item {
-	cursor:pointer;
-	padding:4px 20px;
-	margin-right:5px;
-	float:left;
-	border:1px solid black;
-	background-color:#b0b0b0;
-}
-#banner .carousel-sort .item.active {
-	background-color:#f5f5f5;
-}
-#banner .carousel-left,.carousel-right {
-	position:absolute;
-	left:0;
-	top:50%;
-	transform:translateY(-50%);
-	width:40px;
-	height:70px;
-	z-index:15;
-	text-align:center;
-	cursor:pointer;
-	background:url("http://localhost:8080/img/direction.png") no-repeat -84px;
-}
-#banner .carousel-left:hover {
-	background-position:0;
-}
-#banner .carousel-right {
-	left:auto;
-	right:0;
-	background-position:-124px;
-}
-#banner .carousel-right:hover {
-	background-position:-42px;
-}
-
 /* 分割线
 --------------------------------------------------------------------------------------------------------------- */
 #split_line{
@@ -153,149 +74,11 @@ File: Layout CSS
 	margin-bottom: 10px;
 }
 
-
 /* Content Area
 --------------------------------------------------------------------------------------------------------------- */
 .container{padding:80px 0;}
 
 /* Content */
-
-#trending{
-	height:350px; 
-	width: 25%; 
-	float: left;
-	margin-right: 1%;
-	margin-left: 1%;
-}
-
-#trending .hot_search{
-	text-align: center;
-	height:21.25%; 
-	line-height:250%;
-	background: #dcdcdcec;
-	margin-bottom: 4.75%;
-}
-
-#trending .hot_search_bottom{
-	text-align: center;
-	height:21.25%; 
-	line-height:250%;
-	background: #dcdcdcec;
-}
-
-#trending a{
-	color:#000000;
-}
-
-#notice{
-	height:350px; 
-	width: 46%; 
-	background: #dcdcdcec;
-	float: left;
-	text-align: center;
-	margin-right: 1%;
-}
-
-#notice .preview{
-	width: 80%;
-	text-align: center;
-	height:25%; 
-	line-height:650%;
-	margin:auto; 
-	border-bottom: 6px solid #ffffff;
-}
-
-#notice .last-preview{
-	width: 80%;
-	text-align: center;
-	height:25%;
-	line-height:650%; 
-	margin:auto; 
-}
-
-#notice a{
-	color:#000000;
-}
-
-/* 日历样式 */
-.calendar {
-	height:350px; 
-	width: 25%; 
-	background: #dcdcdcec;
-	float: left;
-	box-shadow:0px 1px 1px rgba(0,0,0,0.1);
-}
-.title {
-	height:70px;
-	/* border-bottom:1px solid rgba(0,0,0,0.1); */
-	text-align:center;
-	position:relative;
-}
-#calendar-title {
-	font-size:25px;
-	font-family:arial;
-	font-weight:bold;
-	text-transform:uppercase;
-	padding:14px 0 0 0;
-}
-#calendar-year {
-	font-size:20px;
-	font-family:arial;
-	font-weight:normal;
-}
-#prev {
-	text-indent:-9999px;
-	position:absolute;
-	left:0;
-	top:0;
-	width:60px;
-	height:70px;
-	background:url(prev.png) no-repeat 50% 50%;
-}
-#next {
-	text-indent:-9999px;
-	position:absolute;
-	right:0;
-	top:0;
-	width:60px;
-	height:70px;
-	background:url(next.png) no-repeat 50% 50%;
-}
-.body {
-	padding:10px 10px;
-}
-.body-list ul {
-	width:100%;
-	font-family:arial;
-	font-weight:bold;
-	font-size:14px;
-}
-.body-list ul li {
-	width:13%;
-	height:36px;
-	line-height:36px;
-	list-style-type:none;
-	display:block;
-	box-sizing:border-box;
-	float:left;
-	text-align:center;
-}
-.lightgrey a{
-	color: #969696;
-}
-.darkgrey a{
-	color:#000000;
-}
-.calendar_color {
-	color:#000000;
-}
-.calendar_color_box {
-	border:1px solid #000000;
-	background:#b6b6b6;
-}
-.calendar_color_box a{
-	color: #000000;
-}
 
 /* Click to Action
 --------------------------------------------------------------------------------------------------------------- */
@@ -325,11 +108,13 @@ Delete it completely to stop fading
 *, *::before, *::after{transition:all .3s ease-in-out;}
 #mainav form *{transition:none !important;}
 
+
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
+
 
 /* Navigation
 --------------------------------------------------------------------------------------------------------------- */
@@ -350,6 +135,7 @@ nav ul, nav ol{margin:0; padding:0; list-style:none;}
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
 
+
 /* Colours
 --------------------------------------------------------------------------------------------------------------- */
 body{color:#474747; background-color:#FFFFFF;}
@@ -365,11 +151,11 @@ input:focus, textarea:focus, *:required:focus{border-color:#56AED4;}
 	color:#FFFFFF; 
 	background-color:inherit;
 }
-/*
+
+/* .overlay{color:#FFFFFF; background-color:inherit;}
 .overlay::after{color:inherit; background-color:rgba(0,0,0,.55);}
 .overlay.light{color:#474747;}
-.overlay.light::after{background-color:rgba(255,255,255,.7);}
-*/
+.overlay.light::after{background-color:rgba(255,255,255,.7);} */
 .overlay div{
 	padding-top: 30px;margin-top: 20px;
 }
@@ -380,6 +166,7 @@ input:focus, textarea:focus, *:required:focus{border-color:#56AED4;}
 .logoname{color:#F2A365;}
 .logoname span{color:#ffe3e3;}
 
+
 /* Rows */
 .row0, .row0 a{color:#FFFFFF; background-color:#F2A365;}
 .row1{color:#474747; background-color:#222831;}
@@ -389,17 +176,21 @@ input:focus, textarea:focus, *:required:focus{border-color:#56AED4;}
 
 .gradient{color:#FFFFFF; background:linear-gradient(to bottom right, #30475E, #4FB5F5);}
 
+
 /* Top Bar */
 #topbar ul li{border-color:rgba(255,255,255,.4);}
 #topbar div:first-of-type
+
 
 /* Header */
 #header a{color:inherit;}
 #header input{background :#858d90; width: 200px; height:30px; color: #ffffff;} 
 #header input::placeholder{color: #ffffff;}
 
-/* Banner */
-#banner{color:#FFFFFF;}
+
+/* Page Intro */
+#pageintro{color:#FFFFFF;}
+
 
 /* Content Area */
 
@@ -426,21 +217,25 @@ tr, #comments li, #comments input[type="submit"], #comments input[type="reset"]{
 tr:nth-child(even), #comments li:nth-child(even){color:inherit; background-color:#F7F7F7;}
 table a, #comments a{background-color:inherit;}
 
+
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
 
+
 /* Media Queries
 --------------------------------------------------------------------------------------------------------------- */
 @-ms-viewport{width:device-width;}
+
 
 /* Max Wrapper Width - Laptop, Desktop etc.
 --------------------------------------------------------------------------------------------------------------- */
 @media screen and (min-width:1140px){
 	.hoc{max-width:1140px;}
 }
+
 
 /* Mobile Devices
 --------------------------------------------------------------------------------------------------------------- */
@@ -478,6 +273,10 @@ table a, #comments a{background-color:inherit;}
 
 	#header{}
 
+	#pageintro article{max-width:none; text-align:left;}
+	#pageintro .heading{font-size:2rem;}
+	#pageintro p:first-of-type{font-size:1rem;}
+
 	.sectiontitle{max-width:none;}
 
 	.overview > li:nth-last-child(-n+3){margin-bottom:30px;}
@@ -504,4 +303,3 @@ table a, #comments a{background-color:inherit;}
 	.font-x2{font-size:1.4rem;}
 	.font-x3{font-size:1.6rem;}
 }
-

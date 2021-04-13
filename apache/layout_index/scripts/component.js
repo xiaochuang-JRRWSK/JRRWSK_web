@@ -1,12 +1,3 @@
-var ip="0.0.0.0"
-$('#search').on('keypress',function(event){
-    // 搜索框回车跳转到搜索结果页
-    if(event.keyCode == 13)      
-    {  
-        var url = "http://"+ip+":5000/search="+$('#search').val()
-        window.location.href=url;
-    }  
-});
 // 实现轮播图
 // 参考：https://www.sucainiu.com/code/1755.html
 function carousel(stop_time) {
@@ -149,6 +140,8 @@ function refreshDate() {
     var firstDay = dayStart(my_month, my_year); //获取该月第一天是星期几
     var myclass;
     var myhref;
+    var showmonth;
+    var showday;
     for (var i = 1; i < firstDay; i++) {
         str += "<li></li>"; //为起始日之前的日期创建空白节点
     }
@@ -160,7 +153,19 @@ function refreshDate() {
         } else {
             myclass = " class='darkgrey'"; //当该日期在今后之后时，以深灰字体显示
         }
-        myhref="<a href='#'>";
+        if(my_month<9){
+            showmonth="0"+String(my_month+1);
+        }
+        else{
+            showmonth=String(my_month+1);
+        }
+        if(i<9){
+            showday="0"+String(i);
+        }
+        else{
+            showday=String(i);
+        }
+        myhref="<a href=http://"+ip+":5000/date="+my_year+showmonth+showday+">";
         str += "<li" + myclass + ">" + myhref + i + "</a></li>"; //创建日期节点
     }
     holder.innerHTML = str; //设置日期显示
@@ -183,3 +188,12 @@ function daysMonth(month, year) {
     }
 }
 refreshDate();
+// 自动补齐两位，前补零
+function addZero(num){
+    if (num.length<10){
+        return "0"+String(num);
+    }
+    else{
+        return String(num);
+    }
+}
