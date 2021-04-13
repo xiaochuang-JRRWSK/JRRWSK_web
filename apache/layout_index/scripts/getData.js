@@ -6,7 +6,7 @@ function get_wechat_notes(){
     // 获取微信公众号文章
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:5000/api/get_wechat_notes',
+        url: 'http://82.156.28.161:5000/api/get_wechat_notes',
         success: function (response) {
           response=JSON.parse(response);
           if(response){
@@ -26,7 +26,7 @@ function get_trending(){
     // 获取热搜数据
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:5000/api/get_trending',
+        url: 'http://82.156.28.161:5000/api/get_trending',
         success: function (response) {
           response=JSON.parse(response);
           if(response){
@@ -45,7 +45,7 @@ function get_notice(){
     // 获取预告数据
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:5000/api/get_notice',
+        url: 'http://82.156.28.161:5000/api/get_notice',
         success: function (response) {
           response=JSON.parse(response);
           if(response){

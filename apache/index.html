@@ -7,8 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <link href="layout_index/styles/layout.css" rel="stylesheet" type="text/css" media="all">
-<script src="layout_index/scripts/vue.js"></script>
-
 
 </head>
 <body id="top">
@@ -17,11 +15,12 @@
   <div id="topbar" class="hoc clear"> 
     <div class="fl_left">
       <ul class="nospace">
-        <li><a href="index.html">首页</a></li>
-        <li><a href="http://localhost:5000/subject=journalism">新闻传播</a></li>
-        <li><a href="http://localhost:5000/subject=engineering">计算机</a></li>
-        <li><a href="http://localhost:5000/subject=art">艺术</a></li>
-        <li><a href="#">艺考</a></li>
+        <li><a href="http://82.156.28.161">首页</a></li>
+        <li><a href="http://82.156.28.161:5000/subject=journalism">新闻传播</a></li>
+        <li><a href="http://82.156.28.161:5000/subject=engineering">工学</a></li>
+        <li><a href="http://82.156.28.161:5000/subject=art">艺术</a></li>
+        <li><a href="http://82.156.28.161:5000/subject=literature">文学</a></li>
+        <li><a href="http://82.156.28.161/about.html">关于我们</a></li>
       </ul>
     </div>
     </div>
@@ -45,7 +44,7 @@
     </div>
 
     <div class="fl_right">
-        <input type="text" name="search" id="search" placeholder="搜索"> 
+        <input type="text" name="search" id="search" placeholder="输入关键词搜索"> 
     </div>
 
   </header>
@@ -57,27 +56,27 @@
     <div class="carousel-inner">
         <div class="item active">
           <a href="https://mp.weixin.qq.com/s/W18r_ypMjprtecjJAbDarw">
-              <img src="http://localhost:8080/img/八大作_fit.png">
+              <img src="http://82.156.28.161/img/八大作_fit.png">
             </a>
         </div>
         <div class="item">
           <a href="https://mp.weixin.qq.com/s/W18r_ypMjprtecjJAbDarw">
-            <img src="http://localhost:8080/img/八大作_fit.png">
+            <img src="http://82.156.28.161/img/八大作_fit.png">
           </a>
         </div>
         <div class="item">
           <a href="https://mp.weixin.qq.com/s/W18r_ypMjprtecjJAbDarw">
-            <img src="http://localhost:8080/img/八大作_fit.png">
+            <img src="http://82.156.28.161/img/八大作_fit.png">
           </a>
         </div>
         <div class="item">
           <a href="https://mp.weixin.qq.com/s/W18r_ypMjprtecjJAbDarw">
-            <img src="http://localhost:8080/img/八大作_fit.png">
+            <img src="http://82.156.28.161/img/八大作_fit.png">
           </a>
         </div>
         <div class="item">
           <a href="https://mp.weixin.qq.com/s/W18r_ypMjprtecjJAbDarw">
-            <img src="http://localhost:8080/img/八大作_fit.png">
+            <img src="http://82.156.28.161/img/八大作_fit.png">
           </a>
         </div>
     </div>
@@ -95,6 +94,18 @@
 
 <hr id="split_line"/>
 
+<div class="row3-head cut">
+  <div id="trending-head">
+    <h3>讲座推荐</h3>
+  </div>
+  <div id="notice-head">
+    <h3>讲座预告</h3>
+  </div>
+  <div id="calendar-head">
+    <h3>讲座日历</h3>
+  </div>
+</div>
+
 <div class="row3 cut">
   <div id="trending">
     <div class="hot_search">TOP1 </div>
@@ -104,10 +115,10 @@
   </div>
 
   <div id="notice">
-    <div class="preview">预告1 </div>
-    <div class="preview">预告2 </div>
-    <div class="preview">预告3 </div>
-    <div class="last-preview">预告4 </div>
+    <div class="preview">预告  </div>
+    <div class="preview">预告  </div>
+    <div class="preview">预告  </div>
+    <div class="last-preview">预告  </div>
   </div>
 
   <div class="calendar">
@@ -153,6 +164,7 @@
 <script src="layout_index/scripts/jquery.min.js"></script>
 <script src="layout_index/scripts/jquery.backtotop.js"></script>
 <script src="layout_index/scripts/jquery.mobilemenu.js"></script>
+<script src="layout_index/scripts/tools.js"></script>
 <script src="layout_index/scripts/component.js"></script>
 <script src="layout_index/scripts/getData.js"></script>
 

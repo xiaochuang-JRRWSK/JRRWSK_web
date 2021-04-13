@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>今日人文社科</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link href="static/layout/styles/layout_search.css" rel="stylesheet" type="text/css" media="all">
+
+</head>
+
+<body id="top">
+
+<div class="row0">
+  <div id="topbar" class="hoc clear"> 
+    <div class="fl_left">
+      <ul class="nospace">
+        <li><a href="http://localhost:8080/">首页</a></li>
+        <li><a href="http://localhost:5000/subject=journalism">新闻传播</a></li>
+        <li><a href="http://localhost:5000/subject=engineering">工学</a></li>
+        <li><a href="http://localhost:5000/subject=art">艺术</a></li>
+        <li><a href="http://localhost:5000/subject=literature">文学</a></li>
+		<li><a href="http://localhost:8080/about.html">关于我们</a></li>
+      </ul>
+    </div>
+    </div>
+</div>
+
+<div class="row1">
+
+  <header id="header" class="hoc clear"> 
+    <div id="logo" class="one_half first">
+      
+      <h1 class="logoname">
+        <img src="static/layout/img/logo.png" style="height: 100px;float: left;">
+        <div>
+          <a href="http://localhost:8080/">
+            <span>今日</span>
+            人文社科
+          </a>
+        </div>
+        
+      </h1>
+    </div>
+
+    <div class="fl_right">
+      <input type="text" name="search" id="search" placeholder="输入关键词搜索"> 
+  </div>
+  </header>
+
+</div>
+
+<script src="static/layout/scripts/jquery.min.js"></script>
+<script src="static/layout/scripts/jquery.mobilemenu.js"></script>
+<script src="static/layout/scripts/tools.js"></script>
+
+<!--从这里开始-->
+
+<div>
+  <div id='content-box' style="text-align: center;">
+    <hr>
+    <p style="font-size: 50px;"><strong>{{ title }}</strong></p>
+  </div>
+</div>
+
+<div class="row5">
+  <div id="copyright" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <p class="fl_left">Copyright &copy; 2021 - All Rights Reserved - <a href="#">今日人文社科</a></p>
+    <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+
+<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+
+<script src="static/layout/scripts/jquery.backtotop.js"></script>
+
+</body>
+</html>

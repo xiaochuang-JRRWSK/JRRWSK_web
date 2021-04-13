@@ -1,5 +1,5 @@
 get_wechat_notes();
-// get_trending();
+get_trending_by_subject();
 // 获取数据
 function get_wechat_notes(){
     // 获取微信公众号文章
@@ -21,14 +21,18 @@ function get_wechat_notes(){
 });
 }
 
-function get_trending(){
-    // 获取热搜数据
+function get_trending_by_subject(){
+    // 获取学科热搜数据
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:5000/api/get_trending',
+        url: 'http://localhost:5000/api/get_trending_by_subject',
+        data:{field:document.title},
+        dataType: "json",
         success: function (response) {
-          response=JSON.parse(response);
           if(response){
+              response=JSON.stringify(response);
+              response=JSON.parse(response);
+
               show_trending(response['trending_list']);
           }
           else{

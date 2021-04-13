@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>今日人文社科</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link href="static/layout/styles/layout_search.css" rel="stylesheet" type="text/css" media="all">
+
+</head>
+
+<body id="top">
+
+<div class="row0">
+  <div id="topbar" class="hoc clear"> 
+    <div class="fl_left">
+      <ul class="nospace">
+        <li><a href="http://localhost:8080/">首页</a></li>
+        <li><a href="http://localhost:5000/subject=journalism">新闻传播</a></li>
+        <li><a href="http://localhost:5000/subject=engineering">工学</a></li>
+        <li><a href="http://localhost:5000/subject=art">艺术</a></li>
+        <li><a href="http://localhost:5000/subject=literature">文学</a></li>
+		<li><a href="http://localhost:8080/about.html">关于我们</a></li>
+      </ul>
+    </div>
+    </div>
+</div>
+
+<div class="row1">
+
+  <header id="header" class="hoc clear"> 
+    <div id="logo" class="one_half first">
+      
+      <h1 class="logoname">
+        <img src="static/layout/img/logo.png" style="height: 100px;float: left;">
+        <div>
+          <a href="http://localhost:8080/">
+            <span>今日</span>
+            人文社科
+          </a>
+        </div>
+        
+      </h1>
+    </div>
+
+    <div class="fl_right">
+      <input type="text" name="search" id="search" placeholder="输入关键词搜索"> 
+    </div>
+  </header>
+
+</div>
+
+<script src="static/layout/scripts/jquery.min.js"></script>
+<script src="static/layout/scripts/jquery.mobilemenu.js"></script>
+<script src="static/layout/scripts/tools.js"></script>
+<script src="static/layout/scripts/search_tools.js"></script>
+
+<!--从这里开始-->
+
+<div>
+  <div id='result-list'style='width:27%;float:left;text-align:center'>
+    <div id='out' style='height:800px;background-color:whitesmoke;overflow:auto'>  
+    <div id='inside' style='overflow:auto'>
+      <hr>  
+      <p style="font-size: 20px;"><strong>日期：{{ date }}</strong></p>
+      
+      <p><strong>收录结果{{ length }}条</strong></p>
+      <hr>
+      <div id='content-list'>
+        {% for i in range(length) %}
+          {% if i==0 %}
+            <p id="{{result_list[i]['ID']}}" onclick="get_content(this.id)" style="color:#3e7fd3">{{ result_list[i]['title'] }}</p>
+          {% else%}
+            <p id="{{result_list[i]['ID']}}" onclick="get_content(this.id)">{{ result_list[i]['title'] }}</p>
+          {% endif %}
+        <hr>
+        {% endfor %}
+      </div>
+    </div>  
+    </div>
+  </div>   
+
+  <div id='content-box'style='width:71%;float:left;margin-left:1%;margin-right:1%'>
+    <hr>
+    <h1 style="text-align: center;font:bold">
+      <a href="{{result['url']}}" style="color:black">
+        {{ result['title'] }}
+      </a>
+    </h1>
+    <hr>
+    <p>{{ result['total_content'] | safe }}</p>
+  </div>
+</div>
+
+<div class="row5">
+  <div id="copyright" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <p class="fl_left">Copyright &copy; 2021 - All Rights Reserved - <a href="#">今日人文社科</a></p>
+    <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+
+<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+
+<script type='application/javascript'>  
+    var outDiv = document.getElementById('out');  
+    outDiv.onwheel = function(event){  
+        //禁止事件默认行为（此处禁止鼠标滚轮行为关联到"屏幕滚动条上下移动"行为）  
+        event.preventDefault();  
+        //设置鼠标滚轮滚动时屏幕滚动条的移动步长  
+        var step = 50;  
+        if(event.deltaY < 0){  
+            //向上滚动鼠标滚轮，屏幕滚动条左移  
+            this.scrollTop -= step;  
+        } else {  
+            //向下滚动鼠标滚轮，屏幕滚动条右移  
+            this.scrollTop += step;  
+        }  
+    }
+    /**
+        // 如果要手动设置滚动条在Y轴方向的位置可以直接设置scrollTop,例如：
+        outDiv.scrollTop = 500;
+        // 如果要手动设置滚动条在X、Y轴方向的位置可以使用函数scrollTo,例如设置X轴滚动100，Y轴滚动400：
+        outDiv.scrollTo(100,400);
+    **/
+</script>
+<script src="static/layout/scripts/search_tools.js"></script>
+<script src="static/layout/scripts/jquery.backtotop.js"></script>
+</body>
+</html>
